@@ -1,45 +1,31 @@
 import React from "react";
 import './App.css';
-
+import Header from "./components/Header/Header";
+import Navbar from "./components/Navbar/Navbar";
+import Profile from "./components/Profile/Profile";
+import Dialogs from "./components/Dialogs/Dialogs";
+import News from "./components/News/News";
+import Music from "./components/Music/Music";
+import Settings from "./components/Settings/Settings";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 const App = () => {
     return (
-        <div className='app-wrapper'>
-            <header className='header'>
-                <img src='https://i.pinimg.com/originals/fa/99/69/fa99695d46c1e28ef267519904f8dcb5.png'></img>
-            </header>
-            <nav className='nav'>
-                <div>
-                    <a>Profile</a>
-                </div>
-                <div>
-                    <a>Massages</a>
-                </div>
-                <div>
-                    <a>News</a>
-                </div>
-                <div>
-                    <a>Music</a>
-                </div>
-                <div>
-                    <a>Settings</a>
-                </div>
-            </nav>
-            <div className='content'>
-                <div>
-                    <img src='https://ymcagbw.org/sites/default/files/2020-03/gray_wolf.png'></img>
-                </div>
-                <div>
-                    Ava + description
-                </div>
-                <div>
-                    My posts
-                    <div>
-
-                    </div>
+        <BrowserRouter>
+            <div className='app-wrapper'>
+                <Header/>
+                <Navbar/>
+                <div className='app-wrapper-content'>
+                    <Routes>
+                        <Route path='/dialogs' element={<Dialogs/>}/>
+                        <Route path='/profile' element={<Profile/>}/>
+                        <Route path='/news' element={<News/>}/>
+                        <Route path='/music' element={<Music/>}/>
+                        <Route path='/settings' element={<Settings/>}/>
+                    </Routes>
                 </div>
             </div>
-        </div>
+        </BrowserRouter>
     );
 }
 
